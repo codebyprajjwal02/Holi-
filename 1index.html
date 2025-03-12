@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Holi!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff7f7f, #ffccff, #66ff66, #ffcc00);
+            background-size: 400% 400%;
+            animation: gradientBackground 5s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .content {
+            z-index: 1;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        .characters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 40px;
+        }
+        .character {
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            border-radius: 50%;
+            position: relative;
+        }
+        .boy {
+            background-image: url('https://www.kindpng.com/picc/m/523-5236367_boy-playing-holi-png.png');
+            animation: boyHoli 1.5s infinite alternate;
+        }
+        .girl {
+            background-image: url('https://www.kindpng.com/picc/m/523-5236367_girl-playing-holi-png.png');
+            animation: girlHoli 1.5s infinite alternate;
+        }
+        @keyframes boyHoli {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        @keyframes girlHoli {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        .message {
+            margin-top: 30px;
+            font-size: 1.3em;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+        }
+        #userName {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff6347;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Happy Holi Mere Priyajan!</h1>
+        <p>Wishing you a colorful and joyful festival, Aur Haan Iss bar kii Holi tumsab ke jeewan ko rangeen bna de yahi meri khwahis hain!</p>
+        <div class="characters">
+            <div class="character boy"></div>
+            <div class="character girl"></div>
+        </div>
+        <div class="message">May your life be as colorful as Holi!</div>
+
+        <!-- Input for her name -->
+        <div id="userName">Hello, <span id="name">Bhai yaha neeche apna naam enter kroo</span>!</div>
+        <div>
+            <label for="nameInput" style="color: white; font-size: 1.2em;">Enter your name idhar side main bro: </label>
+            <input type="text" id="nameInput" placeholder="Your Name" style="padding: 10px; font-size: 1em;">
+            <button onclick="updateName()" style="padding: 10px 20px; font-size: 1em; margin-left: 10px;">Idhar press kre</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to update the name dynamically
+        function updateName() {
+            var name = document.getElementById('nameInput').value;
+            if(name.trim() !== '') {
+                document.getElementById('name').textContent = name;
+            } else {
+                document.getElementById('name').textContent = 'Guest';
+            }
+        }
+    </script>
+</body>
+</html>
